@@ -4,11 +4,10 @@ Returns: an integer
 '''
 def single_number(arr):
     # Your code here
-    for i in range(len(arr)):
-        for j in range(i+1, len(arr)):
-            if arr[i] == arr[j]:
-                print(arr[i])
-
+    result = 0
+    for i in arr:
+        result ^= i #XOR sets the result to 1 if either, but not both, of the corresponding bits in the two operands is 1.
+    return result  #return the result // 1 integer
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
