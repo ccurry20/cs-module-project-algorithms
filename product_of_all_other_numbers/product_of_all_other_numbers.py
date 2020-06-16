@@ -3,9 +3,13 @@ Input: a List of integers
 Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
-    # Your code here
-
-    pass
+  # Your code here
+    p = {0:1, -1:1}   # products ([:i] for pos. keys, [i:]-neg. keys)
+    n = len(arr)
+    for i in range(1,n):
+        p[i]    = arr[i-1] * p[i-1]  # prod of elements left of i
+        p[-i-1] = arr[-i]  * p[-i]   # prod of elements right of i
+    return [p[i]*p[-n+i] for i in range(n)]
 
 
 if __name__ == '__main__':
